@@ -48,7 +48,7 @@ export default function Header() {
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center mystical-glow">
                 <span className="text-primary-foreground font-serif text-xl">✦</span>
               </div>
-              <span className="font-serif text-xl md:text-2xl text-foreground font-semibold">Mystical Readings</span>
+              <span className="font-serif text-xl md:text-2xl text-foreground font-semibold">Tarot Time with Vi</span>
             </motion.div>
 
             {/* Desktop Navigation */}
