@@ -66,7 +66,7 @@ export default function Footer() {
               <div className="w-10 h-10 bg-accent-foreground rounded-full flex items-center justify-center">
                 <span className="text-accent font-serif text-xl">✦</span>
               </div>
-              <span className="font-serif text-2xl font-semibold">Mystical Readings</span>
+              <span className="font-serif text-2xl font-semibold">Tarot Time with Vi</span>
             </motion.div>
 
             <motion.p
