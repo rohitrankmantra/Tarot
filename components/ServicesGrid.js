@@ -14,7 +14,7 @@ export default function ServicesGrid() {
       icon: "🔮",
       title: "Live Session with Me",
       description: "Personal one-on-one reading session with real-time guidance and interactive discussion",
-      price: "From $75",
+      price: "From £75",
       duration: "60 minutes",
       popular: true,
     },
@@ -23,7 +23,7 @@ export default function ServicesGrid() {
       icon: "✨",
       title: "Celtic Cross Reading",
       description: "Comprehensive 10-card spread revealing past, present, future, and hidden influences",
-      price: "From $45",
+      price: "From £45",
       duration: "Detailed report",
     },
     {
@@ -31,7 +31,7 @@ export default function ServicesGrid() {
       icon: "💕",
       title: "Love Reading",
       description: "Explore matters of the heart, relationships, and romantic connections with compassion",
-      price: "From $35",
+      price: "From £35",
       duration: "Focused insight",
     },
     {
@@ -39,7 +39,7 @@ export default function ServicesGrid() {
       icon: "🌟",
       title: "General Life Reading",
       description: "Holistic overview of your current life path, challenges, and opportunities ahead",
-      price: "From $40",
+      price: "From £40",
       duration: "Complete guidance",
     },
     {
@@ -47,7 +47,7 @@ export default function ServicesGrid() {
       icon: "🌸",
       title: "Self-Love Reading",
       description: "Nurture your relationship with yourself and discover your inner strength and worth",
-      price: "From $30",
+      price: "From £30",
       duration: "Personal empowerment",
     },
     {
@@ -55,7 +55,7 @@ export default function ServicesGrid() {
       icon: "🌙",
       title: "Next Month Reading",
       description: "Prepare for what's coming with insights into the energies and opportunities ahead",
-      price: "From $25",
+      price: "From £25",
       duration: "Monthly forecast",
     },
     {
@@ -63,7 +63,7 @@ export default function ServicesGrid() {
       icon: "❓",
       title: "Answer to a Question",
       description: "Get clear, focused guidance on a specific question or situation you're facing",
-      price: "From $20",
+      price: "From £20",
       duration: "Direct answer",
     },
   ]
