@@ -151,7 +151,7 @@ export default function ServicesGrid() {
 
                   {/* Details */}
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-primary font-semibold text-lg">{service.price}</span>
+                    <span className="text-[#ce42ee] font-semibold text-lg">{service.price}</span>
                     <span className="text-muted-foreground">{service.duration}</span>
                   </div>
                 </div>

@@ -84,16 +84,16 @@ export default function AboutSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <div className="flex items-center space-x-2 text-primary">
-                <div className="w-2 h-2 bg-primary rounded-full mystical-glow" />
+              <div className="flex items-center space-x-2 text-[#ce42ee]">
+                <div className="w-2 h-2 bg-[#ce42ee] rounded-full mystical-glow" />
                 <span className="font-medium">10+ Years Experience</span>
               </div>
-              <div className="flex items-center space-x-2 text-primary">
-                <div className="w-2 h-2 bg-primary rounded-full mystical-glow" />
+              <div className="flex items-center space-x-2 text-[#ce42ee]">
+                <div className="w-2 h-2 bg-[#ce42ee] rounded-full mystical-glow" />
                 <span className="font-medium">Certified Advisor</span>
               </div>
-              <div className="flex items-center space-x-2 text-primary">
-                <div className="w-2 h-2 bg-primary rounded-full mystical-glow" />
+              <div className="flex items-center space-x-2 text-[#ce42ee]">
+                <div className="w-2 h-2 bg-[#ce42ee] rounded-full mystical-glow" />
                 <span className="font-medium">Compassionate Guidance</span>
               </div>
             </motion.div>

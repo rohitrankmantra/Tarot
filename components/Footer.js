@@ -12,6 +12,7 @@ export default function Footer() {
     { name: "FAQ", href: "#faq" },
   ]
 
+  
   const services = [
     { name: "Live Session", href: "#services" },
     { name: "Celtic Cross", href: "#services" },
@@ -95,7 +96,7 @@ export default function Footer() {
                   d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <span>hello@mysticalreadings.com</span>
+              <span>info@tarottimewithvi.com</span>
             </motion.div>
           </div>
 
@@ -178,7 +179,7 @@ export default function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              © {currentYear} Mystical Readings. All rights reserved.
+              © {currentYear} Tarot Time With Vi. All rights reserved.
             </motion.p>
             <motion.div
               className="flex items-center space-x-6 text-sm"

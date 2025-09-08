@@ -36,7 +36,7 @@ export default function ServiceDetails({ title, description, price, oldPrice, on
                 £{oldPrice}
               </span>
             )}
-            <span className="text-3xl md:text-4xl font-semibold text-primary">
+            <span className="text-3xl md:text-4xl font-semibold text-[#ce42ee]">
               £{price}
             </span>
           </div>
