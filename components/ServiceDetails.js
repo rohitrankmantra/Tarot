@@ -1,8 +1,40 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
 
-export default function ServiceDetails({ title, description, price, oldPrice, onSale }) {
+
+export default function ServiceDetails({ productId, title, description, price, oldPrice, onSale }) {
+  const [loading, setLoading] = useState(false);
+
+
+const handleAddToCart = async () => {
+  setLoading(true);
+  try {
+    const res = await fetch("/api/cart/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        productId,
+        name: title,
+        price: parseFloat(price),
+        quantity: 1,
+      }),
+      credentials: "include", // important for cookies
+    });
+
+    const data = await res.json();
+
+    if (res.ok) toast.success("✅ Added to cart!");
+    else toast.error("❌ Error: " + (data.error || "Something went wrong"));
+  } catch (err) {
+    console.error(err);
+    toast.error("❌ Something went wrong");
+  }
+  setLoading(false);
+}
+
   return (
     <section className="relative py-24 bg-gradient-to-b from-background via-background/95 to-background">
       <div className="container mx-auto px-4 flex justify-center">
@@ -65,17 +97,19 @@ export default function ServiceDetails({ title, description, price, oldPrice, on
             </motion.button>
 
             <motion.button
+              onClick={handleAddToCart}
+              disabled={loading}
               className="flex-1 text-primary border border-primary px-10 py-4 rounded-2xl 
                          font-medium text-lg hover:bg-primary hover:text-primary-foreground 
                          transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Add to Cart
+              {loading ? "Adding..." : "Add to Cart"}
             </motion.button>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

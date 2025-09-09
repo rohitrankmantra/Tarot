@@ -21,6 +21,7 @@ export default function LoveReadingPage() {
       />
 
       <ServiceDetails
+       productId="love-reading-001"
         title="Love Tarot Reading"
         price="20"
         originalPrice="38"

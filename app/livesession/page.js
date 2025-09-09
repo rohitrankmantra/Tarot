@@ -20,8 +20,9 @@ export default function LiveSessionPage() {
       />
 
       <ServiceDetails
+        productId="live-session-001"
         title="Live Tarot Reading Session"
-        price="45"
+        price="75"
         description={`This is a private one-on-one tarot session designed to give you deep insights and guidance.
         
 During our time together, you’ll receive a personalized tarot spread, intuitive interpretation, and practical advice for your journey. 

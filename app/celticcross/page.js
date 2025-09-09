@@ -21,6 +21,7 @@ export default function CelticCrossPage() {
       />
 
       <ServiceDetails
+        productId="celtic-cross-001"
         title="Celtic Cross Tarot Reading"
         price="18"
         description={`The Celtic Cross is one of the most famous tarot spreads. It provides deep insight into complex situations, helping you understand influences and potential outcomes. Feeling stuck or unsure what to do next? This spread highlights the good and bad of the situation and reveals what is on your conscious and subconscious mind.`}

@@ -21,6 +21,7 @@ export default function GeneralLifeReadingPage() {
       />
 
       <ServiceDetails
+        productId="general-life-001"
         title="General Life Reading"
         price="14"
         originalPrice="35"

@@ -21,6 +21,7 @@ export default function NextMonthReadingPage() {
       />
 
       <ServiceDetails
+      productId="next-month-001"
         title="Next Month Tarot Reading"
         price="15"
         originalPrice="36"

@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import Link from "next/link";
 
 export default function ServicesGrid() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.2 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, threshold: 0.2 });
 
   const services = [
     {
@@ -17,6 +18,8 @@ export default function ServicesGrid() {
       price: "From £75",
       duration: "60 minutes",
       popular: true,
+      learnMorePath: "/livesession",
+      bookNowPath: "#", // add actual path later
     },
     {
       id: 2,
@@ -25,6 +28,8 @@ export default function ServicesGrid() {
       description: "Comprehensive 10-card spread revealing past, present, future, and hidden influences",
       price: "From £45",
       duration: "Detailed report",
+      learnMorePath: "/celticcross",
+      bookNowPath: "#",
     },
     {
       id: 3,
@@ -33,6 +38,8 @@ export default function ServicesGrid() {
       description: "Explore matters of the heart, relationships, and romantic connections with compassion",
       price: "From £35",
       duration: "Focused insight",
+      learnMorePath: "/lovereading",
+      bookNowPath: "#",
     },
     {
       id: 4,
@@ -41,6 +48,8 @@ export default function ServicesGrid() {
       description: "Holistic overview of your current life path, challenges, and opportunities ahead",
       price: "From £40",
       duration: "Complete guidance",
+      learnMorePath: "/generallife",
+      bookNowPath: "#",
     },
     {
       id: 5,
@@ -49,6 +58,8 @@ export default function ServicesGrid() {
       description: "Nurture your relationship with yourself and discover your inner strength and worth",
       price: "From £30",
       duration: "Personal empowerment",
+      learnMorePath: "/selflove",
+      bookNowPath: "#",
     },
     {
       id: 6,
@@ -57,6 +68,8 @@ export default function ServicesGrid() {
       description: "Prepare for what's coming with insights into the energies and opportunities ahead",
       price: "From £25",
       duration: "Monthly forecast",
+      learnMorePath: "/nextmonth",
+      bookNowPath: "#",
     },
     {
       id: 7,
@@ -65,8 +78,10 @@ export default function ServicesGrid() {
       description: "Get clear, focused guidance on a specific question or situation you're facing",
       price: "From £20",
       duration: "Direct answer",
+      learnMorePath: "/answertoquestion",
+      bookNowPath: "#",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -77,7 +92,7 @@ export default function ServicesGrid() {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -89,7 +104,7 @@ export default function ServicesGrid() {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   return (
     <section id="services" ref={ref} className="py-20 bg-secondary/30">
@@ -105,9 +120,7 @@ export default function ServicesGrid() {
             Tarot Reading Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
-            Choose from our range of personalized tarot readings, each designed to provide clarity, insight, and
-            guidance for your unique journey. Every reading is conducted with care, intuition, and deep respect for your
-            path.
+            Choose from our range of personalized tarot readings, each designed to provide clarity, insight, and guidance for your unique journey. Every reading is conducted with care, intuition, and deep respect for your path.
           </p>
         </motion.div>
 
@@ -158,20 +171,24 @@ export default function ServicesGrid() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                  <motion.button
-                    className="flex-1 bg-primary text-primary-foreground px-6 py-3 rounded-2xl font-medium hover:mystical-glow hover:scale-105 transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Book Now
-                  </motion.button>
-                  <motion.button
-                    className="flex-1 text-primary border border-primary px-6 py-3 rounded-2xl font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Learn More
-                  </motion.button>
+                  <Link href={service.bookNowPath} passHref>
+                    <motion.a
+                      className="flex-1 bg-primary text-primary-foreground px-12 py-4 rounded-2xl font-medium hover:mystical-glow hover:scale-105 transition-all duration-300 text-center"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Book Now
+                    </motion.a>
+                  </Link>
+                  <Link href={service.learnMorePath} passHref>
+                    <motion.a
+                      className="flex-1 text-primary border border-primary px-8 py-4 rounded-2xl font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-center"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Learn More
+                    </motion.a>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -198,5 +215,5 @@ export default function ServicesGrid() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

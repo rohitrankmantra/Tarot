@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ShoppingCart } from "lucide-react"; // Install lucide-react if not installed
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0); // optional: number of items in cart
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Live Session With Me", href: "/livesession" },
@@ -23,9 +23,9 @@ export default function Header() {
     { name: "Self Love Reading", href: "/selflove" },
     { name: "Next Month Reading", href: "/nextmonth" },
     { name: "Answer to a Question", href: "/answertoquestion" },
-  ]
+  ];
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen)
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <>
@@ -56,32 +56,48 @@ export default function Header() {
               </span>
             </motion.a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-              {navItems.map((item, index) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  className="px-2 py-1 text-sm lg:text-base text-foreground hover:text-primary transition-colors font-medium"
-                  whileHover={{ y: -2 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-              <motion.button
-                className="ml-4 bg-primary text-primary-foreground px-5 py-2 rounded-xl font-medium shadow-md hover:shadow-lg hover:mystical-glow transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.5 }}
-              >
-                Book Reading
-              </motion.button>
-            </nav>
+       {/* Desktop Navigation */}
+<nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
+  {navItems.map((item, index) => (
+    <motion.a
+      key={item.name}
+      href={item.href}
+      className="px-2 py-1 text-sm lg:text-base text-foreground hover:text-primary transition-colors font-medium"
+      whileHover={{ y: -2 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
+    >
+      {item.name}
+    </motion.a>
+  ))}
+
+  {/* Group Book Now button and Cart icon together */}
+  <div className="flex items-center space-x-4">
+    {/* <motion.a
+      href="/livesession"
+      className="bg-primary text-primary-foreground px-5 py-2 rounded-xl font-medium shadow-md hover:shadow-lg hover:mystical-glow transition-all duration-300 flex items-center"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      Book Reading
+    </motion.a> */}
+
+    <motion.a
+      href="/cart"
+      className="relative p-2 rounded-full bg-card/70 shadow-md hover:shadow-lg hover:mystical-glow transition-all duration-300"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <ShoppingCart className="w-6 h-6 text-primary-foreground" />
+      {cartCount > 0 && (
+        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+          {cartCount}
+        </span>
+      )}
+    </motion.a>
+  </div>
+</nav>
 
             {/* Mobile Menu Button */}
             <motion.button
@@ -113,7 +129,6 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 md:hidden"
               initial={{ opacity: 0 }}
@@ -122,7 +137,6 @@ export default function Header() {
               onClick={toggleMobileMenu}
             />
 
-            {/* Mobile Menu */}
             <motion.div
               className="fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-card mystical-shadow z-50 md:hidden"
               initial={{ x: "100%" }}
@@ -146,17 +160,31 @@ export default function Header() {
                       {item.name}
                     </motion.a>
                   ))}
-                  <motion.button
-                    className="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:mystical-glow transition-all duration-300 mt-6 w-full shadow-md hover:shadow-lg"
-                    onClick={toggleMobileMenu}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.4 }}
+
+                  <motion.a
+                    href="/livesession"
+                    className="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:mystical-glow transition-all duration-300 mt-6 w-full shadow-md hover:shadow-lg flex justify-center items-center"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     Book Reading
-                  </motion.button>
+                  </motion.a>
+
+                  {/* Mobile Cart Link */}
+                  <motion.a
+                    href="/cart"
+                    className="bg-card/70 mt-4 py-3 px-4 rounded-xl flex items-center justify-center shadow-md hover:shadow-lg hover:mystical-glow transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ShoppingCart className="w-6 h-6 text-primary-foreground mr-2" />
+                    Cart
+                    {cartCount > 0 && (
+                      <span className="ml-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+                        {cartCount}
+                      </span>
+                    )}
+                  </motion.a>
                 </nav>
               </div>
             </motion.div>
@@ -164,5 +192,5 @@ export default function Header() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

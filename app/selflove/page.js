@@ -21,6 +21,7 @@ export default function SelfLoveReadingPage() {
       />
 
       <ServiceDetails
+        productId="self-love-001"
         title="Self-Love Tarot Reading"
         price="15"
         originalPrice="28"
