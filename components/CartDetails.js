@@ -2,10 +2,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function CartDetails() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter()
 
   // Fetch cart items from API
   const fetchCart = async () => {
@@ -134,7 +136,8 @@ export default function CartDetails() {
               « Continue shopping
             </a>
 
-            <motion.button
+           <motion.button
+              onClick={() => router.push("/checkout")} // <--- redirect to /checkout
               className="bg-accent text-white px-10 py-4 rounded-2xl font-medium text-lg shadow-lg hover:mystical-glow hover:scale-105 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

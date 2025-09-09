@@ -9,37 +9,37 @@ const rituals = [
     title: "Crystal Energy",
     img: "/gallery1.jpeg",
     desc: "Harness the healing vibrations of crystals during readings.",
-    link: "/crystals",
+    link: "/",
   },
   {
     title: "Candle Magic",
     img: "/gallery2.jpeg",
     desc: "Illuminate your path with sacred light and intention.",
-    link: "/candles",
+    link: "/",
   },
   {
     title: "Tarot Spreads",
     img: "/gallery3.jpeg",
     desc: "Deep insights revealed through guided tarot rituals.",
-    link: "/tarot",
+    link: "/",
   },
   {
     title: "Sacred Space",
     img: "/gallery4.jpeg",
     desc: "A spiritual setup that nurtures energy and clarity.",
-    link: "/sacred-space",
+    link: "/",
   },
   {
     title: "Moon Guidance",
     img: "/gallery5.jpeg",
     desc: "Harness the lunar cycles to align your spiritual journey.",
-    link: "/moon",
+    link: "/",
   },
   {
     title: "Mystical Flow",
     img: "/gallery6.jpeg",
     desc: "Let cosmic energy flow freely into your everyday rituals.",
-    link: "/mystical",
+    link: "/",
   },
 ];
 
@@ -102,7 +102,7 @@ export default function RitualsGallery() {
                   </p>
 
                   {/* CTA Button */}
-                  <Link href={ritual.link} className="mt-auto">
+                  <Link href={ritual.link} passHref className="mt-auto">
                     <motion.button
                       className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-2xl font-medium hover:mystical-glow hover:scale-105 transition-all duration-300"
                       whileHover={{ scale: 1.02 }}
