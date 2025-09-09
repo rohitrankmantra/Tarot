@@ -172,22 +172,22 @@ export default function ServicesGrid() {
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
                   <Link href={service.bookNowPath} passHref>
-                    <motion.a
+                    <motion.button
                       className="flex-1 bg-primary text-primary-foreground px-12 py-4 rounded-2xl font-medium hover:mystical-glow hover:scale-105 transition-all duration-300 text-center"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       Book Now
-                    </motion.a>
+                      </motion.button>
                   </Link>
                   <Link href={service.learnMorePath} passHref>
-                    <motion.a
+                    <motion.button
                       className="flex-1 text-primary border border-primary px-8 py-4 rounded-2xl font-medium hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-center"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
                       Learn More
-                    </motion.a>
+                    </motion.button>
                   </Link>
                 </div>
               </div>
