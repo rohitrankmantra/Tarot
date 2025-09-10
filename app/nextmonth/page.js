@@ -23,8 +23,7 @@ export default function NextMonthReadingPage() {
       <ServiceDetails
       productId="next-month-001"
         title="Next Month Tarot Reading"
-        price="15"
-        originalPrice="36"
+        price="25"
         description={`Next Month Reading reveals what is coming for you next month. You will gain insights on what to pay attention to, advice, and recommended actions so you can achieve your goals. The reading covers finances, career, and love relationships, helping you plan your moves effectively.`}
       />
 

@@ -1,4 +1,3 @@
-// models/Cart.js
 import mongoose from "mongoose";
 
 const CartSchema = new mongoose.Schema(
@@ -13,7 +12,7 @@ const CartSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true, collection: "Carts" } // <-- explicitly set collection name
 );
 
 export default mongoose.models.Cart || mongoose.model("Cart", CartSchema);

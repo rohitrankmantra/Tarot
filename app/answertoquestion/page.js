@@ -21,9 +21,9 @@ export default function AnswerToQuestionPage() {
       />
 
       <ServiceDetails
+        productId="answer-to-question-001"
         title="Answer to Your Question"
-        price="14"
-        originalPrice="30"
+        price="20"
         description={`Answer to your question is a reading focused on a particular subject or issue where clarity is needed. Questions can come from any area of your life. The reading guides you toward a solution and helps determine your best next move.`}
       />
 

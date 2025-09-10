@@ -45,7 +45,7 @@ const rituals = [
 
 export default function RitualsGallery() {
   return (
-    <section className="relative py-24 bg-gradient-to-b from-pink-50 via-purple-50 to-pink-100">
+    <section id="ritual-gallery" className="relative py-24 bg-gradient-to-b from-pink-50 via-purple-50 to-pink-100">
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Heading */}
         <motion.h2
@@ -101,7 +101,7 @@ export default function RitualsGallery() {
                     {ritual.desc}
                   </p>
 
-                  {/* CTA Button */}
+                  {/* CTA Button
                   <Link href={ritual.link} passHref className="mt-auto">
                     <motion.button
                       className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-2xl font-medium hover:mystical-glow hover:scale-105 transition-all duration-300"
@@ -110,7 +110,7 @@ export default function RitualsGallery() {
                     >
                       Explore More
                     </motion.button>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </motion.div>

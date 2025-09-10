@@ -49,7 +49,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.h2
-              className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground font-bold text-balance"
+              className="font-serif text-3xl text-center md:text-left md:text-4xl lg:text-5xl text-foreground font-bold text-balance"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -58,7 +58,7 @@ export default function AboutSection() {
             </motion.h2>
 
             <motion.p
-              className="text-lg text-muted-foreground leading-relaxed text-pretty"
+              className="text-lg text-center md:text-left text-muted-foreground leading-relaxed text-pretty"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -69,7 +69,7 @@ export default function AboutSection() {
             </motion.p>
 
             <motion.p
-              className="text-lg text-muted-foreground leading-relaxed text-pretty"
+              className="text-lg text-center md:text-left text-muted-foreground leading-relaxed text-pretty"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.5 }}

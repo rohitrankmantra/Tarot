@@ -7,12 +7,28 @@ import { ShoppingCart } from "lucide-react"; // Install lucide-react if not inst
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [cartCount, setCartCount] = useState(0); // optional: number of items in cart
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 🔹 Fetch cart items count on mount
+  useEffect(() => {
+    async function fetchCartCount() {
+      try {
+        const res = await fetch("/api/cart", { credentials: "include" });
+        if (!res.ok) return;
+        const items = await res.json();
+        const total = items.reduce((sum, i) => sum + (i.quantity || 1), 0);
+        setCartCount(total);
+      } catch (err) {
+        console.error("Error fetching cart:", err);
+      }
+    }
+    fetchCartCount();
   }, []);
 
   const navItems = [
@@ -56,48 +72,39 @@ export default function Header() {
               </span>
             </motion.a>
 
-       {/* Desktop Navigation */}
-<nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
-  {navItems.map((item, index) => (
-    <motion.a
-      key={item.name}
-      href={item.href}
-      className="px-2 py-1 text-sm lg:text-base text-foreground hover:text-primary transition-colors font-medium"
-      whileHover={{ y: -2 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-    >
-      {item.name}
-    </motion.a>
-  ))}
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  className="px-2 py-1 text-sm lg:text-base text-foreground hover:text-primary transition-colors font-medium"
+                  whileHover={{ y: -2 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                >
+                  {item.name}
+                </motion.a>
+              ))}
 
-  {/* Group Book Now button and Cart icon together */}
-  <div className="flex items-center space-x-4">
-    {/* <motion.a
-      href="/livesession"
-      className="bg-primary text-primary-foreground px-5 py-2 rounded-xl font-medium shadow-md hover:shadow-lg hover:mystical-glow transition-all duration-300 flex items-center"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      Book Reading
-    </motion.a> */}
-
-    <motion.a
-      href="/cart"
-      className="relative p-2 rounded-full bg-card/70 shadow-md hover:shadow-lg hover:mystical-glow transition-all duration-300"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <ShoppingCart className="w-6 h-6 text-primary-foreground" />
-      {cartCount > 0 && (
-        <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
-          {cartCount}
-        </span>
-      )}
-    </motion.a>
-  </div>
-</nav>
+              {/* Cart Icon */}
+              <div className="flex items-center space-x-4">
+                <motion.a
+                  href="/cart"
+                  className="relative p-2 rounded-full bg-card/70 shadow-md hover:shadow-lg hover:mystical-glow transition-all duration-300"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ShoppingCart className="w-6 h-6 text-primary-foreground" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full font-bold">
+                      {cartCount}
+                    </span>
+                  )}
+                </motion.a>
+              </div>
+            </nav>
 
             {/* Mobile Menu Button */}
             <motion.button

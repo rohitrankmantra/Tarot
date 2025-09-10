@@ -137,7 +137,7 @@ export default function FAQ() {
           </div>
 
           {/* Bottom CTA */}
-          <motion.div
+          {/* <motion.div
             className="text-center mt-16"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -151,7 +151,7 @@ export default function FAQ() {
             >
               Contact Me Directly
             </motion.button>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

@@ -23,8 +23,7 @@ export default function GeneralLifeReadingPage() {
       <ServiceDetails
         productId="general-life-001"
         title="General Life Reading"
-        price="14"
-        originalPrice="35"
+        price="40"
         description={`A General Life Reading aims to provide insights into various aspects of your life, including finances, relationships, and career. It offers guidance, clarity, and reflections on important decisions and opportunities coming your way.`}
       />
 

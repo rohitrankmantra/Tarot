@@ -23,8 +23,7 @@ export default function SelfLoveReadingPage() {
       <ServiceDetails
         productId="self-love-001"
         title="Self-Love Tarot Reading"
-        price="15"
-        originalPrice="28"
+        price="30"
         description={`Self-love reading is perfect when you are feeling lost or out of flow with yourself. It is an amazing reminder that you are worthy of love and should celebrate your uniqueness. Open your heart and take practical steps to nurture yourself. Remember, self-love is a journey, and you are deserving every step of the way. Book your self-love tarot reading today and start embracing the beautiful soul that you are.`}
       />
 

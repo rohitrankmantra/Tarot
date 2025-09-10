@@ -39,7 +39,7 @@ export default function ServiceHero({ headline, subhead, primaryCTA, secondaryCT
         </motion.p>
 
         {/* CTA Buttons */}
-        <motion.div
+        {/* <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function ServiceHero({ headline, subhead, primaryCTA, secondaryCT
               {secondaryCTA}
             </motion.button>
           )}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )

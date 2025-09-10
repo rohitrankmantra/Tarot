@@ -23,8 +23,7 @@ export default function LoveReadingPage() {
       <ServiceDetails
        productId="love-reading-001"
         title="Love Tarot Reading"
-        price="20"
-        originalPrice="38"
+        price="35"
         description={`Love tarot reading offers insights into your romantic life. It can provide guidance on current relationships or potential romantic opportunities. Don't let uncertainty hold you back from experiencing the love and connection you deserve. Take advantage of this special offer and book your love tarot reading with me today!`}
       />
 
