@@ -15,10 +15,16 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Visitor ID not found in cookies" });
     }
 
-    // Delete cart for this visitor
-    await Cart.deleteOne({ visitorId });
+    // Clear all items in the cart for this visitor
+    const cart = await Cart.findOne({ visitorId });
+    if (!cart) {
+      return res.status(404).json({ error: "Cart not found" });
+    }
 
-    res.status(200).json({ message: "Cart cleared successfully" });
+    cart.items = []; // empty the items array
+    await cart.save();
+
+    res.status(200).json({ message: "Cart items cleared successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
