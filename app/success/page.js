@@ -1,76 +1,77 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import Header from "@/components/Header";
+import { useSearchParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export default function SuccessPage() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
-
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState(null);
 
   useEffect(() => {
-    const fetchOrder = async () => {
-      if (!sessionId) {
-        toast.error("❌ Missing session ID");
-        setLoading(false);
-        return;
-      }
+    if (!sessionId) return;
 
+    const verifyPayment = async () => {
       try {
-        const res = await fetch(`/api/checkout/success?session_id=${sessionId}`);
+        const res = await fetch(`/api/verify-payment?session_id=${sessionId}`);
         const data = await res.json();
 
-        if (!res.ok) throw new Error(data.error || "Failed to fetch order");
+        if (res.ok) {
+          setOrder(data);
 
-        setOrder(data);
+          if (data.paymentStatus === "paid") {
+            toast.success("✅ Payment successful!");
+
+            // Clear cart (visitorId is taken from cookie inside the API)
+            await fetch("/api/cart/clear", { method: "POST" });
+
+            // Clear localStorage cart data
+            localStorage.removeItem("cartItems");
+
+            // Auto-redirect after 5 seconds
+            setTimeout(() => {
+              router.push("/");
+            }, 5000);
+          } else {
+            toast.error("❌ Payment not completed.");
+          }
+        } else {
+          toast.error("❌ " + (data.error || "Verification failed"));
+        }
       } catch (err) {
         console.error(err);
-        toast.error("❌ " + err.message);
+        toast.error("❌ Something went wrong");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchOrder();
-  }, [sessionId]);
+    verifyPayment();
+  }, [sessionId, router]);
 
-  if (loading)
-    return (
-      <div className="min-h-screen flex items-center justify-center text-xl">
-        ⏳ Verifying your payment...
-      </div>
-    );
-
-  if (!order)
-    return (
-      <div className="min-h-screen flex items-center justify-center text-xl">
-        ❌ Payment verification failed.
-      </div>
-    );
+  if (loading) return <p className="text-center mt-20">Verifying payment...</p>;
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Header />
-      <div className="max-w-4xl mx-auto p-8 text-center">
-        <h1 className="text-3xl font-bold text-accent mb-6">✅ Payment Successful!</h1>
-        <p className="text-lg mb-4">
-          Thank you, <strong>{order.userInfo.name}</strong>! Your payment of{" "}
-          <strong>£{order.totalAmount}</strong> has been received.
-        </p>
-        <p className="mb-6">Your order includes:</p>
-        <ul className="mb-6 space-y-2">
-          {order.items.map((item, index) => (
-            <li key={index} className="text-left">
-              • {item.name} — £{item.price} × {item.quantity}
-            </li>
-          ))}
-        </ul>
-        <p className="text-green-500 font-medium">Payment Status: {order.paymentStatus}</p>
-      </div>
-    </main>
+    <div className="max-w-3xl mx-auto py-20 text-center">
+      {order?.paymentStatus === "paid" ? (
+        <>
+          <h1 className="text-3xl font-bold mb-4">Payment Successful!</h1>
+          <p className="mb-4">Thank you, {order.userInfo.name}. Your order has been confirmed.</p>
+          <p>Total Paid: £{order.totalAmount}</p>
+          <p className="mt-4 text-sm text-gray-400">You will be redirected shortly...</p>
+        </>
+      ) : (
+        <h1 className="text-3xl font-bold text-red-500">Payment Failed or Pending</h1>
+      )}
+      <button
+        onClick={() => router.push("/")}
+        className="mt-8 px-6 py-3 bg-accent text-white rounded-xl hover:scale-105 transition-transform"
+      >
+        Back to Home
+      </button>
+    </div>
   );
 }
