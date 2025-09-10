@@ -19,7 +19,7 @@ export default function HomePage() {
       <CallToActionBanner/>
       <RitualsGallery/>
       <Testimonials />
-      <ContactForm />
+      {/* <ContactForm /> */}
       <FAQ />
       <Footer />
     </main>

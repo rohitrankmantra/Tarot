@@ -1,27 +1,52 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CommentSection() {
-  const [comments, setComments] = useState([])
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [comments, setComments] = useState([]);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  // 🔹 Fetch comments on load
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const res = await fetch("/api/comments/get");
+        const data = await res.json();
+        setComments(data);
+      } catch (err) {
+        console.error("Failed to load comments:", err);
+      }
+    };
+    fetchComments();
+  }, []);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!formData.name || !formData.email || !formData.message) return
+  // 🔹 Submit new comment
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
 
-    setComments([
-      { ...formData, date: new Date().toLocaleDateString() },
-      ...comments,
-    ])
-    setFormData({ name: "", email: "", message: "" })
-  }
+    try {
+      const res = await fetch("/api/comments/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        const newComment = await res.json();
+        setComments([newComment, ...comments]); // prepend
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (err) {
+      console.error("Error submitting comment:", err);
+    }
+  };
 
   return (
     <section className="py-20 bg-gradient-to-b from-background via-background/95 to-background">
@@ -36,7 +61,7 @@ export default function CommentSection() {
           Share Your Thoughts ✨
         </motion.h2>
 
-        {/* Form Card */}
+        {/* Form */}
         <motion.form
           onSubmit={handleSubmit}
           className="bg-card/80 rounded-3xl p-8 shadow-xl border border-border/50 backdrop-blur-lg space-y-6"
@@ -44,7 +69,6 @@ export default function CommentSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {/* Floating label inputs */}
           <div className="relative">
             <input
               type="text"
@@ -87,7 +111,6 @@ export default function CommentSection() {
             </label>
           </div>
 
-          {/* Submit */}
           <motion.button
             type="submit"
             className="w-full rounded-2xl bg-primary text-primary-foreground py-4 font-semibold shadow-lg hover:shadow-xl hover:bg-primary/90 transition"
@@ -109,7 +132,7 @@ export default function CommentSection() {
           <AnimatePresence>
             {comments.map((comment, index) => (
               <motion.div
-                key={index}
+                key={comment._id || index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -121,7 +144,7 @@ export default function CommentSection() {
                     {comment.name}
                   </h4>
                   <span className="text-sm text-muted-foreground">
-                    {comment.date}
+                    {new Date(comment.createdAt).toLocaleDateString()}
                   </span>
                 </div>
                 <p className="text-muted-foreground">{comment.message}</p>
@@ -131,5 +154,5 @@ export default function CommentSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

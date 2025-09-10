@@ -108,9 +108,8 @@ export default function ServiceDetails({
             <motion.button
               onClick={handleAddToCart}
               disabled={loading}
-              className="flex-1 text-primary border border-primary px-10 py-4 rounded-2xl 
-                         font-medium text-lg hover:bg-primary hover:text-primary-foreground 
-                         transition-all duration-300"
+             className="flex-1 bg-primary text-primary-foreground px-10 py-4 rounded-2xl 
+                         font-medium text-lg shadow-lg hover:mystical-glow hover:scale-105 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -139,7 +138,7 @@ export default function ServiceDetails({
               <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                 Added to cart:
               </h3>
-              <p className="text-primary font-medium text-lg mb-6">{title}</p>
+              <p className="text-[#ce42ed] font-medium text-lg mb-6">{title}</p>
 
               <div className="flex justify-center gap-4">
                 <button

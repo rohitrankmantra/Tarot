@@ -146,7 +146,7 @@ export default function ServicesGrid() {
               <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                 Added to cart:
               </h3>
-              <p className="text-primary font-medium text-lg mb-6">
+              <p className="text-[#ce42ed] font-medium text-lg mb-6">
                 {popupService.title}
               </p>
 
