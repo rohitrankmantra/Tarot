@@ -114,7 +114,7 @@ export default function ServicesGrid() {
 
                   <Link href={service.learnMorePath} passHref>
                     <motion.button
-                      className="flex-1 text-primary border border-primary px-8 py-4 rounded-2xl font-medium hover:bg-primary hover:text-primary-foreground transition-all"
+                      className="flex-1 text-primary border border-primary px-[120px] py-4 sm:px-8  rounded-2xl font-medium hover:bg-primary hover:text-primary-foreground transition-all"
                       whileTap={{ scale: 0.95 }}
                     >
                       Learn More
