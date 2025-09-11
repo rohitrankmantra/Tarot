@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { API_URL } from "../utils/api"; // adjust relative path as needed
 
 export default function CartDetails() {
   const [cartItems, setCartItems] = useState([]);
@@ -13,7 +14,7 @@ export default function CartDetails() {
   const fetchCart = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/cart", { credentials: "include" });
+     const res = await fetch(`${API_URL}/api/cart`, { credentials: "include" });
       const data = await res.json();
       if (res.ok) setCartItems(data);
       else toast.error("❌ Failed to fetch cart: " + (data.error || ""));
@@ -31,7 +32,7 @@ export default function CartDetails() {
   // Update quantity in backend
   const handleQuantityChange = async (productId, newQty) => {
     try {
-      const res = await fetch("/api/cart", {
+      const res = await fetch(`${API_URL}/api/cart`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productId, quantity: Number(newQty) }),
@@ -49,7 +50,7 @@ export default function CartDetails() {
   // Remove item from backend
   const handleRemove = async (productId) => {
     try {
-      const res = await fetch(`/api/cart/${productId}`, {
+      const res = await fetch(`${API_URL}/api/cart/${productId}`, {
         method: "DELETE",
         credentials: "include",
       });

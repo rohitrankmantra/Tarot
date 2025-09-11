@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart } from "lucide-react"; // Install lucide-react if not installed
+import { API_URL } from "@/utils/api";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +20,7 @@ export default function Header() {
   useEffect(() => {
     async function fetchCartCount() {
       try {
-        const res = await fetch("/api/cart", { credentials: "include" });
+        const res = await fetch(`${API_URL}/api/cart`, { credentials: "include" });
         if (!res.ok) return;
         const items = await res.json();
         const total = items.reduce((sum, i) => sum + (i.quantity || 1), 0);

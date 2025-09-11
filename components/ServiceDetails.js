@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { API_URL } from "@/utils/api";
+
 
 export default function ServiceDetails({
   productId,
@@ -18,7 +20,7 @@ export default function ServiceDetails({
   const handleAddToCart = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/cart/add", {
+      const res = await fetch(`${API_URL}/api/cart/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

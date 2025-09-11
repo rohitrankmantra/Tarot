@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { API_URL } from './../../utils/api';
 
 export default function SuccessPage() {
   const searchParams = useSearchParams();
@@ -16,7 +17,7 @@ export default function SuccessPage() {
 
     const verifyPayment = async () => {
       try {
-        const res = await fetch(`/api/verify-payment?session_id=${sessionId}`);
+        const res = await fetch(`${API_URL}/api/verify-payment?session_id=${sessionId}`);
         const data = await res.json();
 
         if (res.ok) {

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { API_URL } from "@/utils/api";
 
 export default function ServicesGrid() {
   const ref = useRef(null);
@@ -25,7 +26,7 @@ export default function ServicesGrid() {
   const handleAddToCart = async (service) => {
     setLoadingId(service.id);
     try {
-      const res = await fetch("/api/cart/add", {
+      const res = await fetch(`${API_URL}/api/cart/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { API_URL } from "./../../utils/api";
 
 export default function CheckoutForm({ visitorId, cartItems }) {
   const router = useRouter();
@@ -56,12 +57,12 @@ export default function CheckoutForm({ visitorId, cartItems }) {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/checkout", {
+      const res = await fetch(`${API_URL}/api/checkout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({  userInfo }),
+        credentials: "include", // 🔹 important!
+        body: JSON.stringify({ userInfo }), // only send user info
       });
-
 
       const data = await res.json();
 
@@ -73,7 +74,6 @@ export default function CheckoutForm({ visitorId, cartItems }) {
       toast.error("❌ " + err.message);
     } finally {
       setLoading(false);
-      
     }
   };
 

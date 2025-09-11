@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { API_URL } from "@/utils/api";
 
 export default function CommentSection() {
   const [comments, setComments] = useState([]);
@@ -11,7 +12,7 @@ export default function CommentSection() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch("/api/comments/get");
+        const res = await fetch(`${API_URL}/api/comments/`);
         const data = await res.json();
         setComments(data);
       } catch (err) {
@@ -32,7 +33,7 @@ export default function CommentSection() {
     if (!formData.name || !formData.email || !formData.message) return;
 
     try {
-      const res = await fetch("/api/comments/add", {
+      const res = await fetch(`${API_URL}/api/comments/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

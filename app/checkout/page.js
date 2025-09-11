@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import CheckoutForm from "@/components/checkout/CheckoutForm";
 import OrderSummary from "@/components/checkout/OrderSummary";
 import { toast } from "sonner";
+import { API_URL } from "@/utils/api";
 
 export default function CheckoutPage() {
   const [cartItems, setCartItems] = useState([]);
@@ -14,7 +15,7 @@ export default function CheckoutPage() {
   const fetchCart = async () => {
     setLoadingCart(true);
     try {
-      const res = await fetch("/api/cart", { credentials: "include" });
+      const res = await fetch(`${API_URL}/api/cart`, { credentials: "include" });
       const data = await res.json();
       if (res.ok) setCartItems(data);
       else toast.error("❌ Failed to fetch cart: " + (data.error || ""));
