@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function CallToActionBanner() {
   return (
@@ -32,18 +33,20 @@ export default function CallToActionBanner() {
           and discover the insights waiting for you.
         </motion.p>
 
-        <motion.button
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="relative bg-accent text-accent-foreground px-10 py-4 rounded-2xl font-semibold 
-                     hover:scale-105 transition-all duration-300 mystical-shadow overflow-hidden"
-        >
-          <span className="relative z-10">Book Your Reading Now</span>
-          {/* Glow effect */}
-          <span className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 opacity-30 animate-pulse"></span>
-        </motion.button>
+        <Link href="#services" passHref>
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="relative bg-accent text-accent-foreground px-10 py-4 rounded-2xl font-semibold 
+                       hover:scale-105 transition-all duration-300 mystical-shadow overflow-hidden"
+          >
+            <span className="relative z-10">Book Your Reading Now</span>
+            {/* Glow effect */}
+            <span className="absolute inset-0 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 opacity-30 animate-pulse"></span>
+          </motion.button>
+        </Link>
       </div>
     </section>
   );

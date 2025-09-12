@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "node server.js"
+    "start": "node server.js",
+    "export": "next export"
     
   },
   "dependencies": {

@@ -16,10 +16,11 @@ export default function HomePage() {
       <HeroSlider />
       <AboutSection />
       <ServicesGrid />
-      <CallToActionBanner/>
       <RitualsGallery/>
       <Testimonials />
       {/* <ContactForm /> */}
+      <CallToActionBanner/>
+
       <FAQ />
       <Footer />
     </main>

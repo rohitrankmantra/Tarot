@@ -12,7 +12,6 @@ export default function Footer() {
     { name: "FAQ", href: "#faq" },
   ]
 
-  
   const services = [
     { name: "Live Session", href: "#services" },
     { name: "Celtic Cross", href: "#services" },
@@ -22,40 +21,50 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      name: "Instagram",
-      href: "#",
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.781c-.315 0-.595-.122-.807-.315-.21-.21-.315-.49-.315-.807s.105-.595.315-.807c.21-.21.49-.315.807-.315s.595.105.807.315c.21.21.315.49.315.807s-.105.595-.315.807c-.21.193-.49.315-.807.315z" />
-        </svg>
-      ),
-    },
-    {
       name: "Facebook",
-      href: "#",
+      href: "https://www.facebook.com/tarot.time.with.vi",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14 6h3v3h-2a1 1 0 0 0-1 1V12h3l-.5 3h-2.5v7A10 10 0 0 0 22 12z" />
         </svg>
       ),
     },
     {
-      name: "Twitter",
-      href: "#",
+      name: "Instagram",
+      href: "https://www.instagram.com/tarot_time_with_vi/",
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+          <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm4.5 5a5.5 5.5 0 1 0 0 11a5.5 5.5 0 0 0 0-11zm0 2a3.5 3.5 0 1 1 0 7a3.5 3.5 0 0 1 0-7zm5.75-2a1.25 1.25 0 1 0 0 2.5a1.25 1.25 0 0 0 0-2.5z" />
         </svg>
       ),
     },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/@TarottimewithVi-vw9fe",
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a2.99 2.99 0 0 0-2.106-2.116C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.392.57A2.99 2.99 0 0 0 .502 6.186 31.52 31.52 0 0 0 0 12a31.52 31.52 0 0 0 .502 5.814 2.99 2.99 0 0 0 2.106 2.116C4.495 20.5 12 20.5 12 20.5s7.505 0 9.392-.57a2.99 2.99 0 0 0 2.106-2.116A31.52 31.52 0 0 0 24 12a31.52 31.52 0 0 0-.502-5.814zM9.75 15.02v-6.04l6.02 3.02-6.02 3.02z" />
+        </svg>
+      ),
+    },
+    {
+      name: "TikTok",
+      href: "https://www.tiktok.com/@tarot_time_with_vi",
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.75 2c1.54 1.36 3.54 2.21 5.75 2.29V8a8.75 8.75 0 0 1-5.75-2.12v7.75a6.75 6.75 0 1 1-6-6.7v3.08a3.75 3.75 0 1 0 3 3.67V2h3z" />
+        </svg>
+      ),
+    },
+    
   ]
 
   return (
     <footer className="bg-accent text-accent-foreground">
-      {/* Main Footer Content */}
+      {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
+          {/* Brand */}
           <div className="lg:col-span-2">
             <motion.div
               className="flex items-center space-x-2 mb-6"
@@ -101,20 +110,12 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
+          <motion.div>
             <h3 className="font-serif text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-accent-foreground/80 hover:text-accent-foreground transition-colors duration-200 hover:underline"
-                  >
+                  <a href={link.href} className="text-accent-foreground/80 hover:text-accent-foreground hover:underline">
                     {link.name}
                   </a>
                 </li>
@@ -123,20 +124,12 @@ export default function Footer() {
           </motion.div>
 
           {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
+          <motion.div>
             <h3 className="font-serif text-lg font-semibold mb-4">Popular Services</h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.name}>
-                  <a
-                    href={service.href}
-                    className="text-accent-foreground/80 hover:text-accent-foreground transition-colors duration-200 hover:underline"
-                  >
+                  <a href={service.href} className="text-accent-foreground/80 hover:text-accent-foreground hover:underline">
                     {service.name}
                   </a>
                 </li>
@@ -157,6 +150,8 @@ export default function Footer() {
             <motion.a
               key={social.name}
               href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 bg-accent-foreground/10 rounded-full flex items-center justify-center text-accent-foreground/80 hover:text-accent-foreground hover:bg-accent-foreground/20 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -170,38 +165,12 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-accent-foreground/20">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <motion.p
-              className="text-accent-foreground/60 text-sm"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              © {currentYear} Tarot Time With Vi. All rights reserved.
-            </motion.p>
-            <motion.div
-              className="flex items-center space-x-6 text-sm"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <a
-                href="#"
-                className="text-accent-foreground/60 hover:text-accent-foreground transition-colors duration-200"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-accent-foreground/60 hover:text-accent-foreground transition-colors duration-200"
-              >
-                Terms of Service
-              </a>
-            </motion.div>
-          </div>
+        <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-center text-sm text-accent-foreground/60">
+          <p>© {currentYear} Tarot Time With Vi. All rights reserved.</p>
+          {/* <div className="flex items-center space-x-6">
+            <a href="#" className="hover:text-accent-foreground">Privacy Policy</a>
+            <a href="#" className="hover:text-accent-foreground">Terms of Service</a>
+          </div> */}
         </div>
       </div>
     </footer>
