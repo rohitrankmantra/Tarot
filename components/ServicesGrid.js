@@ -13,13 +13,77 @@ export default function ServicesGrid() {
   const [popupService, setPopupService] = useState(null);
 
   const services = [
-    { id: "live1", icon: "🔮", title: "Live Session with Me", description: "Personal one-on-one reading session with real-time guidance and interactive discussion", price: 75, duration: "60 minutes", popular: true, learnMorePath: "/livesession" },
-    { id: "celtic1", icon: "✨", title: "Celtic Cross Reading", description: "Comprehensive 10-card spread revealing past, present, future, and hidden influences", price: 45, duration: "Detailed report", learnMorePath: "/celticcross" },
-    { id: "love1", icon: "💕", title: "Love Reading", description: "Explore matters of the heart, relationships, and romantic connections with compassion", price: 35, duration: "Focused insight", learnMorePath: "/lovereading" },
-    { id: "life1", icon: "🌟", title: "General Life Reading", description: "Holistic overview of your current life path, challenges, and opportunities ahead", price: 40, duration: "Complete guidance", learnMorePath: "/generallife" },
-    { id: "self1", icon: "🌸", title: "Self-Love Reading", description: "Nurture your relationship with yourself and discover your inner strength and worth", price: 30, duration: "Personal empowerment", learnMorePath: "/selflove" },
-    { id: "month1", icon: "🌙", title: "Next Month Reading", description: "Prepare for what's coming with insights into the energies and opportunities ahead", price: 25, duration: "Monthly forecast", learnMorePath: "/nextmonth" },
-    { id: "q1", icon: "❓", title: "Answer to a Question", description: "Get clear, focused guidance on a specific question or situation you're facing", price: 20, duration: "Direct answer", learnMorePath: "/answertoquestion" },
+    {
+      id: "live1",
+      icon: "🔮",
+      title: "Live Session with Me",
+      description:
+        "Personal one-on-one reading session with real-time guidance and interactive discussion",
+      price: 75,
+      duration: "60 minutes",
+      popular: true,
+      learnMorePath: "/livesession",
+    },
+    {
+      id: "celtic1",
+      icon: "✨",
+      title: "Celtic Cross Reading",
+      description:
+        "Comprehensive 10-card spread revealing past, present, future, and hidden influences",
+      price: 45,
+      duration: "Detailed report",
+      learnMorePath: "/celticcross",
+    },
+    {
+      id: "love1",
+      icon: "💕",
+      title: "Love Reading",
+      description:
+        "Explore matters of the heart, relationships, and romantic connections with compassion",
+      price: 35,
+      duration: "Focused insight",
+      learnMorePath: "/lovereading",
+    },
+    {
+      id: "life1",
+      icon: "🌟",
+      title: "General Life Reading",
+      description:
+        "Holistic overview of your current life path, challenges, and opportunities ahead",
+      price: 40,
+      duration: "Complete guidance",
+      learnMorePath: "/generallife",
+    },
+    {
+      id: "self1",
+      icon: "🌸",
+      title: "Self-Love Reading",
+      description:
+        "Nurture your relationship with yourself and discover your inner strength and worth",
+      price: 30,
+      duration: "Personal empowerment",
+      learnMorePath: "/selflove",
+    },
+    {
+      id: "month1",
+      icon: "🌙",
+      title: "Next Month Reading",
+      description:
+        "Prepare for what's coming with insights into the energies and opportunities ahead",
+      price: 25,
+      duration: "Monthly forecast",
+      learnMorePath: "/nextmonth",
+    },
+    {
+      id: "q1",
+      icon: "❓",
+      title: "Answer to a Question",
+      description:
+        "Get clear, focused guidance on a specific question or situation you're facing",
+      price: 20,
+      duration: "Direct answer",
+      learnMorePath: "/answertoquestion",
+    },
   ];
 
   // 🔹 Add to cart handler
@@ -65,7 +129,8 @@ export default function ServicesGrid() {
             Tarot Reading Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Choose from our range of personalized tarot readings, each designed to provide clarity, insight, and guidance.
+            Choose from our range of personalized tarot readings, each designed
+            to provide clarity, insight, and guidance.
           </p>
         </motion.div>
 
@@ -97,8 +162,12 @@ export default function ServicesGrid() {
                   </h3>
                   <p className="text-muted-foreground">{service.description}</p>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-[#ce42ee] font-semibold text-lg">£{service.price}</span>
-                    <span className="text-muted-foreground">{service.duration}</span>
+                    <span className="text-[#ce42ee] font-semibold text-lg">
+                      £{service.price}
+                    </span>
+                    <span className="text-muted-foreground">
+                      {service.duration}
+                    </span>
                   </div>
                 </div>
 
@@ -106,16 +175,21 @@ export default function ServicesGrid() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <motion.button
                     onClick={() => handleAddToCart(service)}
+                    F
                     disabled={loadingId === service.id}
-                    className="flex-1 bg-primary text-primary-foreground px-6 py-4 rounded-2xl font-medium hover:mystical-glow hover:scale-105 transition-all"
+                    className="flex-1 bg-primary text-primary-foreground py-4 rounded-2xl font-medium hover:mystical-glow hover:scale-105 transition-all text-center"
                     whileTap={{ scale: 0.95 }}
                   >
                     {loadingId === service.id ? "Adding..." : "Add to Cart"}
                   </motion.button>
 
-                  <Link href={service.learnMorePath} passHref>
+                  <Link
+                    href={service.learnMorePath}
+                    passHref
+                    className="flex-1"
+                  >
                     <motion.button
-                      className="flex-1 text-primary border border-primary px-[120px] py-4 sm:px-8  rounded-2xl font-medium hover:bg-primary hover:text-primary-foreground transition-all"
+                      className="w-full border border-primary text-primary py-4 rounded-2xl font-medium hover:bg-primary hover:text-primary-foreground transition-all text-center"
                       whileTap={{ scale: 0.95 }}
                     >
                       Learn More
